@@ -305,7 +305,7 @@ export class SchemaObjectFactory {
     const _schemaObject = {
       ...metadata,
       name: metadata.name || key,
-      type: metadata.isArray ? 'array' : 'string'
+      type: metadata.isArray ? 'array' : (metadata.type || 'string')
     };
 
     const refHost = metadata.isArray ? { items: { $ref } } : { $ref };
